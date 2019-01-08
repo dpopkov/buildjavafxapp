@@ -2,12 +2,12 @@ package learn.javafx.pomodoro.model;
 
 public class Attempt {
     private String message;
-    private final int remainingSeconds;
+    private int remainingSeconds;
     private final AttemptKind kind;
 
-    public Attempt(String message, AttemptKind kind) {
-        this.message = message;
+    public Attempt(AttemptKind kind, String message) {
         this.kind = kind;
+        this.message = message;
         remainingSeconds = kind.getTotalSeconds();
     }
 
@@ -25,5 +25,22 @@ public class Attempt {
 
     public AttemptKind getKind() {
         return kind;
+    }
+
+    public void tick() {
+        remainingSeconds--;
+    }
+
+    public void save() {
+        System.out.printf("Saving: %s%n", this);
+    }
+
+    @Override
+    public String toString() {
+        return "Attempt{" +
+                "message='" + message + '\'' +
+                ", remainingSeconds=" + remainingSeconds +
+                ", kind=" + kind +
+                '}';
     }
 }
