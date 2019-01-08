@@ -1,8 +1,8 @@
 package learn.javafx.pomodoro.model;
 
 public enum AttemptKind {
-    FOCUS(10/* * 60*/, "Focus time"),
-    BREAK(5/* * 60*/, "Break time");
+    FOCUS(25 * 60, "Focus time"),
+    BREAK(5 * 60, "Break time");
 
     private final int totalSeconds;
     private final String displayName;

@@ -88,10 +88,12 @@ public class Home {
     }
 
     public void playTimer() {
+        container.getStyleClass().add("playing");
         timeline.play();
     }
 
     public void pauseTimer() {
+        container.getStyleClass().remove("playing");
         timeline.pause();
     }
 
@@ -105,12 +107,19 @@ public class Home {
         }
     }
 
-    public void DEBUG(ActionEvent actionEvent) {
-        System.out.println("Hi JavaFX!!!");
-    }
-
     public void handleRestart(ActionEvent actionEvent) {
         prepareAttempt(AttemptKind.FOCUS);
         playTimer();
+    }
+
+    public void handlePlay(ActionEvent actionEvent) {
+        if (currentAttempt == null) {
+            prepareAttempt(AttemptKind.FOCUS);
+        }
+        playTimer();
+    }
+
+    public void handlePause(ActionEvent actionEvent) {
+        pauseTimer();
     }
 }
