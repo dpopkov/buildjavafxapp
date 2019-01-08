@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 /**
  * Main class.
  * VM options for IDE Run configuration:
- * --module-path C:\path-to-javafx\javafx-sdk-11\lib --add-modules=javafx.controls,javafx.fxml
+ * --module-path C:\path-to-javafx\javafx-sdk-11\lib --add-modules=javafx.controls,javafx.fxml,javafx.media
  */
 public class Main extends Application {
     @Override

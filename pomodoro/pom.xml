@@ -29,6 +29,11 @@
       <artifactId>javafx-fxml</artifactId>
       <version>11</version>
     </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-media</artifactId>
+      <version>11</version>
+    </dependency>
     <!-- Testing -->
     <dependency>
       <groupId>junit</groupId>

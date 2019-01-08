@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.util.Duration;
 import learn.javafx.pomodoro.model.Attempt;
 import learn.javafx.pomodoro.model.AttemptKind;
@@ -25,10 +26,12 @@ public class Home {
     private Attempt currentAttempt;
     private StringProperty timerText;
     private Timeline timeline;
+    private AudioClip alarm;
 
     public Home() {
         timerText = new SimpleStringProperty();
         setTimerText(0);
+        alarm = new AudioClip(getClass().getResource("/sounds/alarm.mp3").toExternalForm());
     }
 
     public String getTimerText() {
@@ -63,6 +66,8 @@ public class Home {
         }));
         timeline.setOnFinished(e -> {
             saveCurrentAttempt();
+            alarm.setCycleCount(1);
+            alarm.play();
             prepareAttempt(currentAttempt.getKind() == AttemptKind.FOCUS
                     ? AttemptKind.BREAK
                     : AttemptKind.FOCUS);
